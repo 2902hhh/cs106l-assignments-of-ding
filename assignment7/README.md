@@ -4,7 +4,9 @@
 
 # Assignment 7: Unique Pointer
 
-Due Saturday, December 6th at 11:59PM
+## Setting up C++
+
+Go find and follow the setup instructions in [Assignment Setup](../assignment-setup/README.md) to get your C++ compiler and autograder set up for this assignment.
 
 ## Overview
 
@@ -184,8 +186,8 @@ Once you've implemented `create_list`, we can now create a list and print it out
 ## 🚀 Submission Instructions
 
 If you pass all tests, you are ready to submit! To submit the assignment:
-1. Please complete the feedback form [at this link](https://forms.gle/uHr3J8Vm3gECkZpm9). 
-2. Submit your assignment on [Paperless](https://paperless.stanford.edu)!
+1. Please compile your files `unique_ptr.h`, `main.cpp`, and `short_answer.txt` together into a `.zip`. 
+2. Send your `.zip` file to `cs106l-aut2627-staff@lists.stanford.edu` from your Stanford email, with the email subject of `CS106L Assignment 7 Submission`.
 
 Your deliverable should be:
 
