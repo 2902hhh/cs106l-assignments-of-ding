@@ -14,7 +14,7 @@
 #include <string>
 #include <unordered_set>
 
-std::string kYourName = "STUDENT TODO"; // Don't forget to change this!
+std::string kYourName = "Ding Huan"; // Don't forget to change this!
 
 /**
  * Takes in a file name and returns a set containing all of the applicant names as a set.
@@ -29,7 +29,35 @@ std::string kYourName = "STUDENT TODO"; // Don't forget to change this!
  */
 std::set<std::string> get_applicants(std::string filename) {
   // STUDENT TODO: Implement this function.
+  std::set<std::string> all_names;
+  std::ifstream file(filename);
+  if(file.is_open())
+  {
+    std::string line;
+    while(std::getline(file,line))
+    {
+      all_names.insert(line);
+    }
+  }
+
+  return all_names;
+
 }
+
+std::string get_initials(std::string name)
+{
+  std::string name_init;
+  size_t pos = name.find_first_of(' ');
+
+  name_init.push_back(name[0]);
+  name_init.push_back(name[pos+1]);
+  //name_init = name[0] + name[pos+1];
+
+  return name_init;
+
+}
+
+
 
 /**
  * Takes in a set of student names by reference and returns a queue of names
@@ -41,6 +69,20 @@ std::set<std::string> get_applicants(std::string filename) {
  */
 std::queue<const std::string*> find_matches(std::string name, std::set<std::string>& students) {
   // STUDENT TODO: Implement this function.
+  std::string my_name;
+  my_name = get_initials(name);
+  std::queue<const std::string*> match_name;
+
+  for(auto & a_name : students)
+  {
+    if(my_name == get_initials(a_name))
+    {
+      match_name.push(&(a_name));
+    }
+  }
+
+  return match_name;
+
 }
 
 /**
@@ -55,6 +97,28 @@ std::queue<const std::string*> find_matches(std::string name, std::set<std::stri
  */
 std::string get_match(std::queue<const std::string*>& matches) {
   // STUDENT TODO: Implement this function.
+  std::queue<const std::string*> copy = matches;
+  std::string one;
+  while(!copy.empty())
+  {
+    const std::string *  name = copy.front();
+
+    if((*name).length() == kYourName.length())
+    {
+      one = *name;
+    }
+
+    copy.pop();
+
+  }
+
+  if(one.length() == 0)
+  {
+     one = "NO MATCHES FOUND.";
+  }
+  
+  return one;
+
 }
 
 /* #### Please don't remove this line! #### */
